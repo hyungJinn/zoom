@@ -1,3 +1,7 @@
+// call node on the backend
+
+import http from "http";
+import WebSocket from "ws";
 import express from "express";
 
 const app = express();
@@ -9,4 +13,7 @@ app.get("/", (req, res) => res.render("home"));
 
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 
-app.listen(3000, handleListen);
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
+
+server.listen(3000, handleListen);
