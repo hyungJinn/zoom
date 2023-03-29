@@ -34,3 +34,10 @@ babel-node is a CLI that works exactly the same as the Node.js CLI, with the add
     npm run dev
 
 https://andybrewer.github.io/mvp/
+
+"Buffer 68 65 6c 6c 6f 20 66 72 6f 6d 20 74 68 65 20 62 72 6f 77 73 65 72 21"
+이거 뜨는 사람
+socket.on("message", (message) => {
+console.log(message.toString('utf8'))
+})
+이렇게 바꾸세요
