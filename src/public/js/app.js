@@ -1,3 +1,3 @@
 // is going to run on the frontend.
 
-hello;
+const socket = new WebSocket(`ws://${window.location.host}`);
