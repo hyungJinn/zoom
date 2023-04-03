@@ -35,9 +35,24 @@ babel-node is a CLI that works exactly the same as the Node.js CLI, with the add
 
 https://andybrewer.github.io/mvp/
 
-"Buffer 68 65 6c 6c 6f 20 66 72 6f 6d 20 74 68 65 20 62 72 6f 77 73 65 72 21"
-이거 뜨는 사람
-socket.on("message", (message) => {
-console.log(message.toString('utf8'))
-})
-이렇게 바꾸세요
+### Error
+
+> "Buffer 68 65 6c 6c 6f 20 66 72 6f 6d 20 74 68 65 20 62 72 6f 77 73 65 72 21"
+> socket.on("message", (message) => {console.log(message.toString('utf8'))});
+
+### SocketIO vs WebSockets
+
+[Socket.IO](https://socket.io/docs/v4/)
+
+Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
+
+[WebSocket](https://en.wikipedia.org/wiki/WebSocket)
+
+WebSocket is a communication protocol which provides a full-duplex and low-latency channel between the server and the browser.
+
+### What Socket.IO is not
+
+Socket.IO is NOT a WebSocket implementation.
+
+[socket.io - npm](https://www.npmjs.com/package/socket.io)
+[ws - npm](https://www.npmjs.com/package//ws)
