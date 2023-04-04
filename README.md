@@ -40,15 +40,23 @@ https://andybrewer.github.io/mvp/
 > "Buffer 68 65 6c 6c 6f 20 66 72 6f 6d 20 74 68 65 20 62 72 6f 77 73 65 72 21"
 > socket.on("message", (message) => {console.log(message.toString('utf8'))});
 
-### SocketIO vs WebSockets
+### SocketIO vs WebSocket
 
 [Socket.IO](https://socket.io/docs/v4/)
+
+a library
 
 Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
 
 [WebSocket](https://en.wikipedia.org/wiki/WebSocket)
 
+a protocol
+
 WebSocket is a communication protocol which provides a full-duplex and low-latency channel between the server and the browser.
+
+[EDUCBA - Difference between WebSocket and Socket.io](https://www.educba.com/websocket-vs-socket-io/)
+
+왜 Websocket으로 했다가 socket.io로 하는 거지?
 
 ### What Socket.IO is not
 
