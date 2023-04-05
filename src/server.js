@@ -17,10 +17,12 @@ const httpserver = http.createServer(app);
 const wsServer = new Server(httpserver);
 
 wsServer.on("connection", (socket) => {
-  socket.on("enter_room", (msg, done) => {
-    console.log(msg);
+  socket.on("enter_room", (roomName, done) => {
+    console.log(roomName);
     setTimeout(() => {
-      done();
+      done("hello from the backend");
+      // backend doesn't execute that function cause that has a bit security risk.
+      // was initiated from backend, but is executed on the backend.
     }, 10000);
   });
 });
