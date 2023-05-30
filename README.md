@@ -1,4 +1,4 @@
-# Hoom
+# Zoom
 
 Zoom Clone using NodeJS, WebRTC and WebSockets.
 
@@ -57,6 +57,8 @@ WebSocket is a communication protocol which provides a full-duplex and low-laten
 [EDUCBA - Difference between WebSocket and Socket.io](https://www.educba.com/websocket-vs-socket-io/)
 
 왜 Websocket으로 했다가 socket.io로 하는 거지?
+websocket은 모든게 message인 거 같던데.
+socket.io를 이용하면 "123", "{payload: input.value} - a object" 등을 자유롭게 보낼 수 있다? We can send as much as we want.
 
 ### What Socket.IO is not
 
