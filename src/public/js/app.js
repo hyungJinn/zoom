@@ -9,6 +9,7 @@ const room = document.getElementById("room");
 room.hidden = true;
 
 let roomName;
+let nickName;
 
 // // backend doesn't use this function.
 // // just run on the frondend, not backend.
@@ -37,7 +38,7 @@ function handleNicknameSubmit(event) {
   event.preventDefault();
   const input = room.querySelector("#name input");
   const value = input.value;
-  socket.emit("nickname", input.value);
+  socket.emit("nickname", value);
 }
 
 function showRoom() {
@@ -54,11 +55,15 @@ function showRoom() {
 function handleRoomSubmit(event) {
   event.preventDefault();
   // if the event does not get explicitly handled, its default action should not be taken as it normally would be.
-  const input = form.querySelector("input");
-  socket.emit("enter_room", input.value, showRoom);
+  // const input = form.querySelector("input");
+  const roomNameIpt = form.querySelector("#roomName");
+  const nickNameIpt = form.querySelector("#nickName");
+  socket.emit("enter_room", roomNameIpt.value, nickNameIpt.value, showRoom);
   // Not socket.send()
-  roomName = input.value;
-  input.value = "";
+  roomName = roomNameIpt.value;
+  roomNameIpt.value = "";
+  const changeNicknameIpt = room.querySelector("#name input");
+  changeNicknameIpt.value = nickNameIpt.value;
 }
 
 form.addEventListener("submit", handleRoomSubmit);
