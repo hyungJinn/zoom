@@ -16,9 +16,29 @@ app.get("/*", (_, res) => res.redirect("/"));
 const httpserver = http.createServer(app);
 const wsServer = SocketIO(httpserver);
 
+function publicRooms() {
+  const {
+    sockets: {
+      adapter: { sids, rooms },
+    },
+  } = wsServer;
+  // const sids = wsServer.sockets.adapter.sids;
+  // const rooms = wsServer.sockets.adapter.rooms;
+  const publicRooms = [];
+  rooms.forEach((_, key) => {
+    if (sids.get(key) === undefined) {
+      publicRooms.push(key);
+    }
+  });
+  return publicRooms;
+  // sids have a private room and rooms have a private and a public room.
+  // if you want to get a public room, rooms - sids.
+}
+
 wsServer.on("connection", (socket) => {
   socket["nickname"] = "Anon";
   socket.onAny((event) => {
+    // console.log(wsServer.sockets.adapter);
     console.log(`Socket Event: ${event}`);
   });
   socket.on("enter_room", (roomName, nickname, done) => {
@@ -66,3 +86,5 @@ wsServer.on("connection", (socket) => {
 
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
 httpserver.listen(3000, handleListen);
+
+// https://socket.io/docs/v4/mongo-adapter/

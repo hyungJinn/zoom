@@ -66,3 +66,8 @@ Socket.IO is NOT a WebSocket implementation.
 
 [socket.io - npm](https://www.npmjs.com/package/socket.io)
 [ws - npm](https://www.npmjs.com/package//ws)
+
+Mongo adapter
+
+I'm going to have many servers.
+Not all the clients are connected to same server.
