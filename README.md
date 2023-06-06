@@ -71,3 +71,5 @@ Mongo adapter
 
 I'm going to have many servers.
 Not all the clients are connected to same server.
+
+https://socket.io/docs/v4/mongo-adapter/

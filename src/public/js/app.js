@@ -80,3 +80,18 @@ socket.on("new_message", addMessage);
 // socket.on("new_message", (msg) => {
 //   addMessage(msg);
 // });
+
+socket.on("room_change", (rooms) => {
+  const roomList = welcome.querySelector("ul");
+  roomList.innerText = "";
+  if (rooms.length === 0) {
+    return;
+  }
+  // if the above code is absent, previous roomlist is still alive.
+  rooms.forEach((room) => {
+    const li = document.createElement("li");
+    li.innerText = room;
+    roomList.append(li);
+  });
+});
+// socket.on("room_change", (msg) => console.log(msg));
