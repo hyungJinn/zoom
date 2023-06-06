@@ -40,19 +40,23 @@ https://andybrewer.github.io/mvp/
 > "Buffer 68 65 6c 6c 6f 20 66 72 6f 6d 20 74 68 65 20 62 72 6f 77 73 65 72 21"
 > socket.on("message", (message) => {console.log(message.toString('utf8'))});
 
-### SocketIO vs WebSocket
-
-[Socket.IO](https://socket.io/docs/v4/)
-
-a library
-
-Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
+### WebSocket vs Socket.IO
 
 [WebSocket](https://en.wikipedia.org/wiki/WebSocket)
 
-a protocol
+The communication Protocol
 
-WebSocket is a communication protocol which provides a full-duplex and low-latency channel between the server and the browser.
+WebSocket is the communication Protocol that provides bidirectional communication between the Client and the Server over a TCP connection; WebSocket remains open all the time, so they allow real-time data transfer.
+
+To provides a full-duplex and low-latency channel between the server and the browser.
+
+[Socket.IO](https://socket.io/docs/v4/)
+
+A library
+
+Socket.IO is a library that enables real-time and full-duplex communication between the Client and the Web servers. It uses the WebSocket protocol to provide the interface.
+
+Generally, it is divided into two parts; both WebSocket vs Socket.io are event-driven libraries.
 
 [EDUCBA - Difference between WebSocket and Socket.io](https://www.educba.com/websocket-vs-socket-io/)
 
@@ -73,3 +77,18 @@ I'm going to have many servers.
 Not all the clients are connected to same server.
 
 https://socket.io/docs/v4/mongo-adapter/
+
+npm i @socket.io/admin-ui
+진짜 웬만한 거 다 있구나..
+
+왜 Socket.IO를 사용한 거지?
+이게 왜 node.js 강의인 거지?
+
+@alsdn726
+Alt + 마우스 좌클릭
+Ctrl + Alt + 위, 아래 방향키
+
+멀티라인 한 번에 입력하시면 됩니다 :)
+
+zipperdev9 months ago
+@alsdn726 또는 간편하게 마우스 커서(중간 부분)를 여러줄에 끌어서 선택하실 수 있습니다. 참고로 선택된 부분 없이 오로지 텍스트커서만 있을 때 Ctrl + D를 누르시면 그 커서 또는 여러개가 있는 부분의 단어들이 선택됩니다 :)

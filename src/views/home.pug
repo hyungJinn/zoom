@@ -14,6 +14,10 @@ html(lang="en")
         header 
             h1 Hoom
         main
+            div#myStream
+                video#myFace(autoplay,playsinline, width="400", height="400")
+                button#mute Mute
+                button#camera Camera
             div#welcome
                 form#enter
                     input#roomName(placeholder="room name", required, type="text")
