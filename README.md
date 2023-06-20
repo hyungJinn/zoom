@@ -92,3 +92,10 @@ Ctrl + Alt + 위, 아래 방향키
 
 zipperdev9 months ago
 @alsdn726 또는 간편하게 마우스 커서(중간 부분)를 여러줄에 끌어서 선택하실 수 있습니다. 참고로 선택된 부분 없이 오로지 텍스트커서만 있을 때 Ctrl + D를 누르시면 그 커서 또는 여러개가 있는 부분의 단어들이 선택됩니다 :)
+
+import 방식
+ES6부터는 import / export 라는 방식으로 모듈을 불러오고 내보낸다. ES 모듈의 import는 require과는 다르게 "import {name} from 'module'"과 같이 모듈내에 정의된 특정한 부분만을 불러올 수 있다.
+
+node.js에서는 기본적으 CommonJS 방식의 모듈화를 사용한다. 그래서 ES Modules 방식을 사용할 수 없다.
+
+https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices
