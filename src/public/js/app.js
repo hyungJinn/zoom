@@ -2,8 +2,7 @@
 
 const socket = io();
 
-const welcome = document.getElementById("welcome");
-const form = welcome.querySelector("form");
+const call = document.getElementById("call");
 const room = document.getElementById("room");
 
 const myFace = document.getElementById("myFace");
@@ -11,6 +10,7 @@ const muteBtn = document.getElementById("mute");
 const cameraBtn = document.getElementById("camera");
 const camerasSelect = document.getElementById("cameras");
 
+call.hidden = true;
 room.hidden = true;
 
 let roomName;
@@ -67,7 +67,6 @@ async function getMedia(deviceId) {
     console.log(e);
   }
 }
-getMedia();
 
 function handleMuteClick() {
   myStream
@@ -96,17 +95,39 @@ function handleCameraClick() {
 
 async function handleCameraChange() {
   await getMedia(camerasSelect.value);
+  // console.log(camerasSelect.value);
 }
+
+// const welcomeForm = welcome.querySelector("form");
+
+// function startMedia() {
+//   welcome.hidden = true;
+//   call.hidden = false;
+//   getMedia();
+// }
+
+// function handleWelcomeSubmit(event) {
+//   event.preventDefault();
+//   const input = welcomeForm.querySelector("input");
+//   socket.emit("join_room", input.value, startMedia);
+//   input.value = "";
+// }
 
 muteBtn.addEventListener("click", handleMuteClick);
 cameraBtn.addEventListener("click", handleCameraClick);
 camerasSelect.addEventListener("input", handleCameraChange);
+
+// welcomeForm.addEventListener("submit", handleWelcomeSubmit);
 
 // // backend doesn't use this function.
 // // just run on the frondend, not backend.
 // function backendDone(msg) {
 //   console.log(`The backend says: `, msg);
 // }
+
+//  Welcome Form (join a room)
+const welcome = document.getElementById("welcome");
+const welcomForm = welcome.querySelector("form");
 
 function addMessage(message) {
   const ul = room.querySelector("ul");
@@ -135,6 +156,8 @@ function handleNicknameSubmit(event) {
 function showRoom() {
   welcome.hidden = true;
   room.hidden = false;
+  call.hidden = false;
+  getMedia();
   const h3 = room.querySelector("h3");
   h3.innerText = `Room ${roomName}`;
   const msgForm = room.querySelector("#msg");
@@ -147,8 +170,8 @@ function handleRoomSubmit(event) {
   event.preventDefault();
   // if the event does not get explicitly handled, its default action should not be taken as it normally would be.
   // const input = form.querySelector("input");
-  const roomNameIpt = form.querySelector("#roomName");
-  const nickNameIpt = form.querySelector("#nickName");
+  const roomNameIpt = welcomForm.querySelector("#roomName");
+  const nickNameIpt = welcomForm.querySelector("#nickName");
   socket.emit("enter_room", roomNameIpt.value, nickNameIpt.value, showRoom);
   // Not socket.send()
   roomName = roomNameIpt.value;
@@ -157,7 +180,9 @@ function handleRoomSubmit(event) {
   changeNicknameIpt.value = nickNameIpt.value;
 }
 
-form.addEventListener("submit", handleRoomSubmit);
+welcomForm.addEventListener("submit", handleRoomSubmit);
+
+// Socket Code
 
 socket.on("welcome", (user, newCount) => {
   const h3 = room.querySelector("h3");

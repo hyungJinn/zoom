@@ -4,8 +4,9 @@ Zoom Clone using NodeJS, WebRTC and WebSockets.
 
 ### What is a WebRTC?
 
-Real-time communication for the web </br>
+It allows real-time, peer-to-peer, media exchange between two devices. A connection is established through a discovery and negotiation process called signaling.</br>
 It supports video, voice, and generic data to be sent between peers, allowing developers to build powerful voice- and video-communication solutions.</br>
+Let the server know where they are in the world.
 
 ---
 
